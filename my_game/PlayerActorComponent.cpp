@@ -14,6 +14,7 @@ namespace GameLib {
 		// debugDraw(a);
 		// debugDrawSweptAABB(a);
 		health-=0.5*a.dt;
+		a.velocity.y+=80.0f*a.dt;
 		HFLOGDEBUG("Health: %f",health );
 		if(health<=0){
 			a.active=false;
@@ -30,7 +31,9 @@ namespace GameLib {
 			}
 		}
 	}
-
+	int PlayerActorComponent::getHealth(Actor& a){
+		return (int) health;
+	}
 
 	void PlayerActorComponent::beginPlay(Actor& a) {
 		if (a.isStatic()) {
@@ -52,6 +55,7 @@ namespace GameLib {
 
 
 	void PlayerActorComponent::handleCollisionWorld(Actor& a, World& w) {
+		a.jumped=false;
 		return;
 	}
 

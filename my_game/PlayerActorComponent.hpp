@@ -17,6 +17,7 @@ namespace GameLib {
 		void endOverlap(Actor& a, Actor& b) override;
 		void beginTriggerOverlap(Actor& a, Actor& b) override;
 		void endTriggerOverlap(Actor& a, Actor& b) override;
+		int getHealth(Actor& a)override;
 
 	private:
 		float health=20.0;

@@ -326,6 +326,8 @@ namespace GameLib {
 		ubool clipToWorld{ true };
 		// is object unable to move
 		ubool movable{ true };
+		// Has object jumped before hitting ground
+		ubool jumped{false};
 
 		////////////////////////////////////////////////////
 		// 3D GRAPHICS SUPPORT (EXPERIMENTAL) //////////////
@@ -389,7 +391,7 @@ namespace GameLib {
 		glm::vec3 velocity{ 0.0f, 0.0f, 0.0f };
 
 		// maximum speed (in world units)
-		float speed{ 1.0f };
+		float speed{ 2000.0f };
 
 		struct PHYSICSINFO {
 			float density{ 1.0f };

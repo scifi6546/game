@@ -11,6 +11,7 @@ add_executable(simplegame
     FoodActorComponent.cpp
     PlayerActorComponent.cpp
     Game.cpp
+    MyInputComponent.cpp
     )
 target_link_libraries(simplegame gamelib)
 

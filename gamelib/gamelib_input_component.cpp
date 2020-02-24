@@ -13,7 +13,6 @@ namespace GameLib {
 		if (axis2)
 			actor.velocity.y = axis2->getAmount()*10;
 		//    actor.velocity.y = axis2->getAmount();
-		actor.velocity.y+=3.0;
 	}
 
 	void RandomInputComponent::update(Actor& actor) {
