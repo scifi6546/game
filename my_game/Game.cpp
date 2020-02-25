@@ -252,7 +252,9 @@ bool Game::playGame() {
 			updateWorld();
 			lag -= Game::MS_PER_UPDATE;
 		}
-
+		if(world.dynamicActors[0]->actorComponent()->getHealth(*world.dynamicActors[0])<0){
+			gameOver=true;
+		}
 		shake();
 		updateCamera();
 		drawWorld();
