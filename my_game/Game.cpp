@@ -173,7 +173,20 @@ void Game::showIntro() {
 }
 
 
-void Game::showWonEnding() {}
+void Game::showWonEnding() {
+	GameLib::StoryScreen ss;
+	ss.setBlipSound(SOUND_BLIP);
+	ss.setFont(0, "URWClassico-Bold.ttf", 2.0f);
+	ss.setFont(1, "URWClassico-Bold.ttf", 1.0f);
+	ss.setFontStyle(0, 1, ss.HALIGN_CENTER, ss.VALIGN_BOTTOM);
+	ss.setFontStyle(1, 0, ss.HALIGN_CENTER, ss.VALIGN_CENTER);
+	ss.newFrame(1000, 0, 0, 0, 0, GameLib::BLACK);
+	ss.newFrame(5000, GameLib::BLACK, 3, GameLib::RED, 2, GameLib::YELLOW);
+	ss.frameHeader(0, "The End");
+	ss.frameLine(1, "Yay you won!");
+	ss.newFrame(0, 0, 0, 0, 0, GameLib::BLACK);
+	ss.play();
+}
 
 
 void Game::showLostEnding() {
@@ -251,6 +264,11 @@ bool Game::playGame() {
 		while (lag >= Game::MS_PER_UPDATE) {
 			updateWorld();
 			lag -= Game::MS_PER_UPDATE;
+		}
+		if(world.dynamicActors[0]->shouldWin==true){
+			HFLOGDEBUG("gmae shpuld have won");
+			gameWon=true;
+			gameOver=true;
 		}
 		if(world.dynamicActors[0]->actorComponent()->getHealth(*world.dynamicActors[0])<0){
 			gameOver=true;

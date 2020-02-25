@@ -14,6 +14,9 @@ namespace GameLib {
 		health-=2.0*a.dt;
 		a.velocity.y+=80.0f*a.dt;
 		HFLOGDEBUG("Health: %f",health );
+		HFLOGDEBUG("POS: x: %f y: %f",a.position2d().x,a.position2d().y);
+		if(a.position2d().y<3.0)
+			a.shouldWin=true;
 		if (a.isTrigger()) {
 			if (triggerInfo.t > 0.0f) {
 				a.position.y = triggerInfo.position.y + std::sin(50.0f * triggerInfo.t) * 0.25f;

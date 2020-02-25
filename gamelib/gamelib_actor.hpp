@@ -48,6 +48,7 @@ namespace GameLib {
 
 		// Called whenever the object is introduced into the game, t is current time
 		void beginPlay(float t0);
+		bool shouldWin=false;
 
 		// Called each frame the object needs to update itself before drawing
 		void update(float deltaTime, World& world);
