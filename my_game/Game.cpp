@@ -168,6 +168,10 @@ void Game::showIntro() {
 		ss.frameHeader(0, "Simple Game");
 		ss.frameImage(0, { -6.0f, 6.0f }, { 6.0f, -1.0f }, { 10.0f, 0.2f }, { -117.0f, 3600.0f });
 		ss.frameImageOps({ 0.2f, 0.8f }, { -0.2f, 0.5f }, { 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f, 1.0f });
+			ss.newFrame(5000, GameLib::BLACK, 3, GameLib::RED, 2, GameLib::YELLOW);
+	ss.frameHeader(0, "Setup");
+	ss.frameLine(1, "You are an injured hiker trying to get to a helicopter at the top");
+	ss.newFrame(0, 0, 0, 0, 0, GameLib::BLACK);
 	}
 	ss.play();
 }
